@@ -1,6 +1,6 @@
 ## Installation
 1. create .env file
-2. npm install - node version >=20
+2. npm install - node version 20+
 3. npm run dev
 
 ## EXAMPLE API
