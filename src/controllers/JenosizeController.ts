@@ -76,7 +76,7 @@ router.get('/game24', async (req, res) => {
       }
 
       const response = checkGame24(numbers);
-      res.status(200).json(response);
+      res.status(200).json(response ? 'YES' : 'NO');
     }
   } catch (error) {
     res.status(400).json((error as Error).message);

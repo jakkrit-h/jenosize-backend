@@ -1,3 +1,16 @@
+## Installation
+1. create .env file
+2. npm install
+3. npm run dev
+
+## EXAMPLE API
+
+GET: http://localhost:3000/jenosize?search=ตี๋น้อย Require Header x-api-key
+
+GET: http://localhost:3000/jenosize/gamexo?slots[]=1...N(9) (1|2|0)[9]
+
+GET: localhost:3000/jenosize/game24?numbers[]=9&numbers[]=4&numbers[]=5&numbers[]=8
+
 ## ENV
 
 APP_API_KEY="VvCrrP2WRBvEp9jkMf76vJWUpGFEX6fh" - Fake App Apikey
