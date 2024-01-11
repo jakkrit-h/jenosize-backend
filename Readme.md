@@ -7,9 +7,9 @@
 
 GET: http://localhost:3000/jenosize?search=ตี๋น้อย Require Header x-api-key
 
-GET: http://localhost:3000/jenosize/gamexo?slots[]=1...N(9) (1|2|0)[9]
+GET: http://localhost:3000/jenosize/gamexo?slots[]=1&slots[]=0&slots[]=0&slots[]=0&slots[]=0&slots[]=0&slots[]=0&slots[]=0&slots[]=0  Data type 1|2|0 [9]
 
-GET: localhost:3000/jenosize/game24?numbers[]=9&numbers[]=4&numbers[]=5&numbers[]=8
+GET: http://localhost:3000/jenosize/game24?numbers[]=9&numbers[]=4&numbers[]=5&numbers[]=8
 
 ## ENV
 
