@@ -2,7 +2,7 @@ import axios from 'axios';
 import { Router } from 'express';
 
 import { isValidApiKey } from '../middleware/auth';
-import { xoBot } from '../services/JenosizeService';
+import { checkGame24, xoBot } from '../services/JenosizeService';
 
 const router = Router();
 router.get('/', isValidApiKey, async (req, res) => {
@@ -58,5 +58,28 @@ router.get('/gamexo', isValidApiKey, async (req, res) => {
     res.status(400).json((error as Error).message);
   }
 });
+router.get('/game24', async (req, res) => {
+  try {
+    const numberParams = req.query.numbers;
 
+    if (
+      !numberParams ||
+      !Array.isArray(numberParams) ||
+      numberParams.length !== 4
+    ) {
+      throw new Error('Invalid Input');
+    } else {
+      const numbers = numberParams.map((s) => Number(s) ?? 0);
+
+      if (numberParams.some((n) => Number(n) < 1)) {
+        throw new Error('Invalid Less than 1');
+      }
+
+      const response = checkGame24(numbers);
+      res.status(200).json(response);
+    }
+  } catch (error) {
+    res.status(400).json((error as Error).message);
+  }
+});
 export default router;

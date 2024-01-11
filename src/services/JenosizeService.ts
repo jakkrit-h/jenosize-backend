@@ -45,3 +45,36 @@ export const checkEnemyAlmostVictory = (slot: PlayerType[]): number | null => {
 
   return response;
 };
+
+export function checkGame24(nums: number[]) {
+  return calculate(nums);
+}
+function calculate(nums: number[]) {
+  const target = 24;
+  if (nums.length === 1) {
+    return nums[0] === target;
+  }
+
+  for (let i = 0; i < nums.length; i++) {
+    for (let j = 0; j < nums.length; j++) {
+      if (i !== j) {
+        const num1 = nums[i];
+        const num2 = nums[j];
+        const remainingNums = nums.filter(
+          (_, index) => index !== i && index !== j,
+        );
+
+        if (
+          calculate([...remainingNums, num1 + num2]) ||
+          calculate([...remainingNums, num1 - num2]) ||
+          calculate([...remainingNums, num1 * num2]) ||
+          (num2 !== 0 && calculate([...remainingNums, num1 / num2]))
+        ) {
+          return true;
+        }
+      }
+    }
+  }
+
+  return false;
+}

@@ -1,5 +1,5 @@
 import { NextFunction, Request, Response, response } from 'express';
-import { firebaseApp } from '../authentications';
+import { getFirebaseApp } from '../authentications';
 
 export const isAuth = async (
   req: Request,
@@ -9,7 +9,7 @@ export const isAuth = async (
   const token = req.headers.authorization;
   try {
     if (token) {
-      const verify = await firebaseApp.auth().verifyIdToken(token);
+      const verify = await getFirebaseApp().auth().verifyIdToken(token);
 
       next();
     } else {
