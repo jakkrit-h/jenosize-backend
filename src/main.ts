@@ -5,7 +5,7 @@ import cors from 'cors';
 
 dotenv.config();
 const app: Express = express();
-const PORT = 3000;
+const PORT = process.env.PORT;
 app.use(cors());
 app.use('/jenosize', JenosizeController);
 
